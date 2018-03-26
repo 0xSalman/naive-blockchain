@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package api;
+
+service Blockchain {
+
+  rpc AddBlock (AddBlockRequest) returns (AddBlockResponse) {
+  };
+  rpc GetBlockchain (GetBlockchainRequest) returns (GetBlockchainResponse) {
+  }
+}
+
+message Block {
+  int64 index = 1;
+  int64 timestamp = 2;
+  string hash = 3;
+  string prevHash = 4;
+  string data = 5;
+}
+
+
+message AddBlockRequest {
+  string data = 1;
+}
+
+message AddBlockResponse {
+}
+
+message GetBlockchainRequest {
+}
+
+message GetBlockchainResponse {
+  repeated Block blocks = 1;
+}
